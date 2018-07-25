@@ -52,6 +52,9 @@ Ruby version: 2.5.1
         - 場所
         - 収支
       - 詳細(保存の内容)
+-login関係挙動
+  - Home loginしている時はuserpageへ
+  - login後userpageへ
 
 
 # テーブル
