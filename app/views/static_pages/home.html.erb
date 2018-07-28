@@ -2,7 +2,12 @@
   <div class="home-container container">
       <h1>Poker Live Tracker</h1>
       <h2>戦績保存　スタッツ計測</h2>
-      <%= link_to "Login", login_path, class: "btn btn-lg btn-primary" %>
-      <%= link_to "Signup", signup_path, class: "btn btn-lg btn-primary" %>
+      <% if logged_in? %>
+        <%= link_to "My page", current_user, class: "btn btn-lg btn-primary" %>
+        <%= link_to "Logout", logout_path, class: "btn btn-lg btn-primary" %>
+      <% else %>
+        <%= link_to "Login", login_path, class: "btn btn-lg btn-primary" %>
+        <%= link_to "Signup", signup_path, class: "btn btn-lg btn-primary" %>
+      <% end %>
   </div>
 </div>
