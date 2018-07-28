@@ -93,6 +93,12 @@ p {
 
 /* header */
 
+header{
+  .nav-link{
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
 #logo {
   float: left;
   margin-right: 10px;
