@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -9,6 +9,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    unless current_user.id == params[:id].to_i
+      flash[:danger] = "異なるユーザーのページは見れません"
+      redirect_back_or current_user
+    end
+    @user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -65,6 +70,7 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
