@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180727053619) do
+ActiveRecord::Schema.define(version: 20180730025001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "poker_sessions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "stakes"
+    t.string "place"
+    t.text "memo"
+    t.datetime "start_at"
+    t.datetime "stop_at"
+    t.integer "buy_in"
+    t.integer "cash_out"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_poker_sessions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -24,4 +38,5 @@ ActiveRecord::Schema.define(version: 20180727053619) do
     t.string "remember_digest"
   end
 
+  add_foreign_key "poker_sessions", "users"
 end

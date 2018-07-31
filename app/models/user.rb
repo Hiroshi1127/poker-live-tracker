@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :poker_sessions, dependent: :destroy
   attr_accessor :remember_token
   validates :name,
       presence: true,

@@ -62,15 +62,16 @@ Ruby version: 2.5.1
   - user_id
   - name
   - email
-- Resolt
-  - resolt_id
+- Session
+  - stake
+  - session_id
   - user_id
   - start_at
-  - finish_at
-  - start_chips
-  - finish_chips
+  - stop_at
+  - buy_in
+  - cash_out
   - place
-  - stats_id
+  - currency
 - Stats
   - stats_id
   - resolt_id

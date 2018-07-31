@@ -1,0 +1,41 @@
+<%= form_with(model: PokerSession, local: true) do |form| %>
+  <% if @poker_session.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@poker_session.errors.count, "error") %> prohibited this session from being saved:</h2>
+
+      <ul>
+      <% @poker_session.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      <%= form.label :stakes %>
+      <%= form.text_field :stakes %>
+
+      <%= form.label :buy_in, "Buy In" %>
+      <%= form.number_field :buy_in %>
+      
+      <%= form.label :cash_out, "Cash Out" %>
+      <%= form.number_field :cash_out %>
+
+      <%= form.label :place %>
+      <%= form.text_field :place %>
+
+      <%= form.label :start_at, "Start" %>
+      <%= form.datetime_field :start_at %>
+
+      <%= form.label :stop_at, "Finish" %>
+      <%= form.datetime_field :stop_at %>
+
+      <%= form.label :memo %>
+      <%= form.text_area :memo %>
+
+      <%= form.submit "Save Session", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
