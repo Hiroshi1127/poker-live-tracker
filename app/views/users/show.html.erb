@@ -10,5 +10,15 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong>Sessions</strong>
+  <% if @user.poker_sessions.empty? %>
+    <p>セッションがありません、新しいセッションを登録してみましょう。</p>
+    <%= link_to "セッションを登録", new_poker_session_path, class: "btn btn-lg btn-primary" %>
+  <% else %>
+    <%= @user.poker_sessions.id %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Home', root_path %>

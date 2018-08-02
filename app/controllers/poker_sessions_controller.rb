@@ -15,4 +15,11 @@ class PokerSessionsController < ApplicationController
       render 'new'
     end
   end
+
+  private
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def poker_session_params
+      params.require(:poker_session).permit(:stakes, :buy_in, :cash_out, :place, :start_at, :stop_at, :memo)
+    end
 end
