@@ -36,6 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 4.1.2'
 gem 'jquery-rails'
 gem 'faker', '~> 1.8.7'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

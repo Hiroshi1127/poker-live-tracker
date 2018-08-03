@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       redirect_back_or current_user
     end
     @user = User.find(params[:id])
+    @poker_sessions = @user.poker_sessions.page(params[:page])
   end
 
   # GET /users/new

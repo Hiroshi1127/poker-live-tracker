@@ -16,7 +16,34 @@
     <p>セッションがありません、新しいセッションを登録してみましょう。</p>
     <%= link_to "セッションを登録", new_poker_session_path, class: "btn btn-lg btn-primary" %>
   <% else %>
-    <%= @user.poker_sessions.id %>
+    <div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>日付</th>
+            <th>場所</th>
+            <th>セッション時間</th>
+            <th>損益</th>
+            <th>時給</th>
+            <th>通貨</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @poker_sessions.each do |poker_session| %>
+            <tr>
+              <% @poker_session_time = poker_session.stop_at - poker_session.start_at %>
+              <td><%= poker_session.start_at.strftime('%y/%m/%d') %></td>
+              <td><%= poker_session.place %></td>
+              <td><%= Time.at(@poker_session_time).strftime('%H:%M') %></td>
+              <td><%= @poker_session_balance = poker_session.cash_out - poker_session.buy_in %></td>
+              <td><%= @poker_session_balance / (@poker_session_time / 3600).round(1) %></td>
+              <td>通貨</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @poker_sessions %>
+    </div>
   <% end %>
 </p>
 
