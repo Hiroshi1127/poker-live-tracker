@@ -16,6 +16,10 @@ class PokerSessionsController < ApplicationController
     end
   end
 
+  def edit
+    @poker_session = PokerSession.find(params[:id])
+  end
+
   private
 
     # Never trust parameters from the scary internet, only allow the white list through.
