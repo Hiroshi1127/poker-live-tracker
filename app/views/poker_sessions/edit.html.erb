@@ -1,3 +1,7 @@
 <h1>Session</h1>
-<%= render 'poker_session_form', poker_session: @poker_session %>
+<div class="col-md-6 mx-auto mb-3">
+  <%= link_to "Back", user_path(@user), class: "btn btn-primary" %>
+  <%= link_to "Delete Session", poker_session_path(params[:id]), method: :delete, class: "btn btn-danger btn-sm float-right" %>
+</div>
 
+<%= render 'poker_session_form', poker_session: @poker_session %>

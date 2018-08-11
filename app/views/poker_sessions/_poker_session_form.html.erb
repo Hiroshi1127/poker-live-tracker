@@ -11,31 +11,29 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 mx-auto">
 
-      <%= form.label :stakes %>
-      <%= form.text_field :stakes %>
+    <%= form.label :stakes %>
+    <%= form.text_field :stakes %>
 
-      <%= form.label :buy_in, "Buy In" %>
-      <%= form.number_field :buy_in %>
-      
-      <%= form.label :cash_out, "Cash Out" %>
-      <%= form.number_field :cash_out %>
+    <%= form.label :buy_in, "Buy In" %>
+    <%= form.number_field :buy_in %>
+    
+    <%= form.label :cash_out, "Cash Out" %>
+    <%= form.number_field :cash_out %>
 
-      <%= form.label :place %>
-      <%= form.text_field :place %>
+    <%= form.label :place %>
+    <%= form.text_field :place %>
 
-      <%= form.label :start_at, "Start" %>
-      <%= form.datetime_field :start_at %>
+    <%= form.label :start_at, "Start" %>
+    <%= form.datetime_field :start_at %>
 
-      <%= form.label :stop_at, "Finish" %>
-      <%= form.datetime_field :stop_at %>
+    <%= form.label :stop_at, "Finish" %>
+    <%= form.datetime_field :stop_at %>
 
-      <%= form.label :memo %>
-      <%= form.text_area :memo %>
+    <%= form.label :memo %>
+    <%= form.text_area :memo %>
 
-      <%= form.submit "Save Session", class: "btn btn-primary" %>
-    </div>
+    <%= form.submit "Save Session", class: "btn btn-primary" %>
   </div>
 <% end %>

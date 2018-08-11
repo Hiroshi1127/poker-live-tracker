@@ -14,9 +14,14 @@
       <% else %>
         <%= render 'layouts/header'  %>
         <div class="container">
-          <%= yield %>
-          <%= render 'layouts/footer' %>
-          <%= debug(params) if Rails.env.development? %>
+          <% flash.each do |message_type, message| %>
+            <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+          <% end %>
+          <div class="py-3">
+            <%= yield %>
+            <%= render 'layouts/footer' %>
+            <%= debug(params) if Rails.env.development? %>
+          </div>
         </div>
       <% end %>
   </body>

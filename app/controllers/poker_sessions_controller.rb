@@ -18,6 +18,14 @@ class PokerSessionsController < ApplicationController
 
   def edit
     @poker_session = PokerSession.find(params[:id])
+    @user = User.find(@poker_session.user_id)
+  end
+
+  def update
+    @poker_session = PokerSession.find(params[:id])
+    @poker_session.update(poker_session_params)
+    redirect_to edit_poker_session_path
+    flash[:success] = "update Success"
   end
 
   private
