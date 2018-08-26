@@ -1,0 +1,25 @@
+<p>_chart + <%= @chart_data %> </p>
+<p><%= @poker_sessions_month.length %></p>
+<p><%= @poker_sessions_buyin.length %></p>
+<canvas id="pokerSessionsChart"></canvas>
+<script type="text/javascript">
+  var ctx = document.getElementById('pokerSessionsChart').getContext('2d');
+  var chart = new Chart(ctx, {
+      // The type of chart we want to create
+      type: 'line',
+
+      // The data for our dataset
+      data: {
+          labels: <%= [*1..50] %>,
+          datasets: [{
+              label: "My First dataset",
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(<%= @chart_data %>, 99, 132)',
+              data: <%= @poker_sessions_buyin %>,
+          }]
+      },
+
+      // Configuration options go here
+      options: {}
+  });
+</script>

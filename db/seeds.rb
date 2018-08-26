@@ -23,12 +23,13 @@ end
 users = User.order(:created_at).take(6)
 50.times do
   memo = Faker::Lorem.sentence(5)
-  users.each { |user| user.poker_sessions.create!(stakes: "1/2",
+  users.each { |user| user.poker_sessions.create!(stakes: ["1/2", "5/10", "25/50", "50/100", "75/150", "100/200", "250/500", "500/1000"].sample,
                                             place: "My house-#{rand(1..5)}",
                                             memo: memo,
-                                            start_at: 1.hour.ago,
+                                            start_at: rand(1..600).minutes.ago,
                                             stop_at: Time.now,
-                                            buy_in: rand(1..1000),
-                                            cash_out: rand(1..1000)
+                                            buy_in: rand(1..10000),
+                                            cash_out: rand(1..10000),
+                                            currency: ["EUR", "USD", "GBP", "AUD", "SGD", "CHF", "KRW", "TWD", "CNY", "JPY", "PHP", "HKD", "RUB"].sample
                                             ) }
 end

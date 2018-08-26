@@ -14,7 +14,12 @@ class UsersController < ApplicationController
       redirect_back_or current_user
     end
     @user = User.find(params[:id])
-    @poker_sessions = @user.poker_sessions.page(params[:page])
+    upss = @user.poker_sessions
+    @poker_sessions = upss.page(params[:page])
+    @chart_data = '100'
+    @poker_sessions_buyin = upss.map(&:buy_in)
+    @poker_sessions_month = upss.map{|e| e.start_at.strftime('%y/%m')}
+
   end
 
   # GET /users/new

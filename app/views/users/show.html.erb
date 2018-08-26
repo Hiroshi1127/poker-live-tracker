@@ -10,6 +10,7 @@
   <%= @user.email %>
 </p>
 
+<%= render 'poker_sessions/poker_sessions_chart' %>
 <p>
   <strong>Sessions</strong>
   <% if @user.poker_sessions.empty? %>

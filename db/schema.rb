@@ -17,13 +17,14 @@ ActiveRecord::Schema.define(version: 20180730025001) do
 
   create_table "poker_sessions", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "stakes"
+    t.string "stakes"
     t.string "place"
     t.text "memo"
     t.datetime "start_at"
     t.datetime "stop_at"
     t.integer "buy_in"
     t.integer "cash_out"
+    t.string "currency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_poker_sessions_on_user_id"
