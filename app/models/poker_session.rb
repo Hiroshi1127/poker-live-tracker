@@ -17,6 +17,8 @@
 
 class PokerSession < ApplicationRecord
   belongs_to :user
-  validates :buy_in, presence: true
-  validates :cash_out, presence: true
+  validates :start_at, presence: true
+  validates :stop_at, presence: true
+  validates :buy_in, presence: true , numericality: { less_than: 10 ** 15 }
+  validates :cash_out, presence: true , numericality: { less_than: 10 ** 15 }
 end
