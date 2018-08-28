@@ -13,26 +13,26 @@
 
   <div class="col-md-6 mx-auto">
 
-    <%= form.label :stakes %>
-    <%= form.text_field :stakes %>
+    <%= form.label :stakes %><br>
+    <%= form.number_field :stakes, in: 1..(10 ** 13), style: "width:75%;" %> NL <br>
 
     <%= form.label :currency %>
-    <%= form.text_field :currency %>
-
-    <%= form.label :buy_in, "Buy In" %>
-    <%= form.number_field :buy_in %>
-    
-    <%= form.label :cash_out, "Cash Out" %>
-    <%= form.number_field :cash_out %>
+    <%= form.select :currency, [["PlayChip","PC"],["EUR(ユーロ)","EUR"], ["USD(USドル)","USD"], ["GBP(UKポンド)","GBP"], ["AUD(オーストラリア・ドル)","AUD"], ["SGD(シンガポール・ドル)","SGD"], ["CHF(スイス・フラン)","CHF"], ["KRW(韓国ウォン)","KRW"], ["TWD(ニュー台湾ドル)","TWD"], ["CNY(人民元)","CNY"], ["JPY(円)","JPY"], ["PHP(フィリピン・ペソ)","PHP"], ["HKD(香港ドル)","HKD"], ["RUB(ロシア・ルーブル)","RUB"]] %>
 
     <%= form.label :place %>
     <%= form.text_field :place %>
 
-    <%= form.label :start_at, "Start" %>
+    <%= form.label :start_at, "Start" %><span>必須</span>
     <%= form.datetime_field :start_at %>
 
-    <%= form.label :stop_at, "Finish" %>
+    <%= form.label :stop_at, "Finish" %><span>必須</span>
     <%= form.datetime_field :stop_at %>
+
+    <%= form.label :buy_in, "Buy In" %><span>必須</span>
+    <%= form.number_field :buy_in %>
+
+    <%= form.label :cash_out, "Cash Out" %><span>必須</span>
+    <%= form.number_field :cash_out %>
 
     <%= form.label :memo %>
     <%= form.text_area :memo %>

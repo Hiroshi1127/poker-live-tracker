@@ -37,12 +37,6 @@ RSpec.describe PokerSession, type: :model do
     expect(@poker_session).to be_valid
   end
 
-  it "is invalid with over 15 digit in buy_in and cash_out" do
-    @poker_session.buy_in = 10 ** 15
-    @poker_session.cash_out = 10 ** 15
-    expect(@poker_session).not_to be_valid
-  end
-
   it "is invalid without start_at" do
     @poker_session.start_at = nil
     expect(@poker_session).not_to be_valid
@@ -63,6 +57,13 @@ RSpec.describe PokerSession, type: :model do
     expect(@poker_session).not_to be_valid
   end
 
+  it "is invalid with over 15 digit in buy_in and cash_out" do
+    @poker_session.buy_in = 10 ** 15
+    @poker_session.cash_out = 10 ** 15
+    expect(@poker_session).not_to be_valid
+  end
+
+  it "is invalid with over 13 digit of stakes"
   it "is valid with expected currency"
   it "is invalid without unexpected currency"
 end

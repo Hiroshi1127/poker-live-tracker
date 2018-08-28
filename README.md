@@ -76,3 +76,18 @@ Ruby version: 2.5.1
   - stats_id
   - resolt_id
   - stats_data
+
+#通貨
+- EUR(ユーロ)
+- USD(USドル)
+- GBP(UKポンド)
+- AUD(オーストラリア・ドル)
+- SGD(シンガポール・ドル)
+- CHF(スイス・フラン)
+- KRW(韓国ウォン)
+- TWD(ニュー台湾ドル)
+- CNY(人民元)
+- JPY(円)
+- PHP(フィリピン・ペソ)
+- HKD(香港ドル)
+- RUB(ロシア・ルーブル)
