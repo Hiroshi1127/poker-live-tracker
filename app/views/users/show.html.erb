@@ -37,8 +37,8 @@
               <td><%= poker_session.place %></td>
               <td><%= Time.at(@poker_session_time).strftime('%H:%M') %></td>
               <td><%= @poker_session_balance = poker_session.cash_out - poker_session.buy_in %></td>
-              <td><%= @poker_session_balance / (@poker_session_time / 3600).round(1) %></td>
-              <td>通貨</td>
+              <td><%= (@poker_session_balance / (@poker_session_time / 3600)).round(0) %></td>
+              <td><%= poker_session.currency %></td>
             </tr>
           <% end %>
         </tbody>
